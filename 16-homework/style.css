@@ -1,0 +1,82 @@
+body {
+    overflow-x: hidden;
+    max-width: 1440px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 120px;
+}
+
+span {
+    font-weight: 900;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.container {
+    padding-top: 50px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background-image: url(/img/GitHub-Mark.png);
+    background-repeat: no-repeat;
+    background-size: 400px;
+    height: 300px;
+}
+
+.input_class {
+        position: relative;
+        margin-left: 102px;
+        width: 385px;
+        margin-top: 127px;
+}
+
+.input {
+    max-width: 120px;
+    width: 100%;
+    height: 30px;
+    margin-right: 12px;
+    border-radius: 10px;
+}
+
+.button {
+    height: 36px;
+    font-size: 18px;
+    border-radius: 10px;
+    /* border: none; */
+    background-color: darkcyan;
+    color: white;
+}
+
+.user_list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-left: 0;
+    justify-content: flex-start
+}
+
+.user_list li {
+    margin-right: 20px;
+}
+
+.avatar {
+    max-width: 100px;
+    align-self: center;
+}

@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+ul {
+    margin: 20px 0 20px 0;
+    list-style: none;
+}
+
+.green {
+    background-color: rgb(5, 222, 5);
+}
+
+li {
+    cursor: pointer;
+    margin: 5px 0 5px 0;
+    border: solid 1px black;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+li:hover {
+    color: rgb(116, 16, 16);
+    font-size: 105%;
+    
+}
+
+li>span {
+    margin-right: 20px;
+    padding: 5px;
+    cursor: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.list__box {
+    margin-top: 50px;
+}
+
+.deletebtn {
+    padding: 3px;
+}
+
+.deletebtn:hover {
+    color: red;
+    font-size: 90%;
+}

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    cursor: default;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#todo__form {
+    margin-top: 30px;
+}
+
+.todo__list {
+    margin-top: 30px;
+}
+
+.todo__item {
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 5px 2px 5px;
+    max-width: 700px;
+    margin-bottom: 5px;
+}
+
+.done {
+    background-color: rgb(38, 210, 38);
+}

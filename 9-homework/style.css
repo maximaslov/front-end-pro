@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.list__box {
+    margin-top: 50px;
+}
+
+ul {
+    padding: 20px 0 20px 20px;
+}

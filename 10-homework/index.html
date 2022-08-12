@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="contacts__box">
+            <div class="contacts__inputs">
+                <div class="contacts__firstname">
+                    <h3 class="contacts__input-name">Name</h3>
+                    <input class="contacts__nameinput" type="text" value="" placeholder="Enter First Name">
+                </div>
+                <div class="contacts__lasttname">
+                    <h3 class="contacts__input-name">Last Name</h3>
+                    <input class="contacts__lastnameinput" type="text" value="" placeholder="Enter Last Name">
+                </div>
+                <div class="contacts__phonenumber">
+                    <h3 class="contacts__input-name">Phone Number</h3>
+                    <input class="contacts__phoneinput" type="text" value="" placeholder="Enter phone number">
+                </div>
+                <button class="contacts__btn">Add to the contacts</button>
+            </div>
+            <ul class="contacts__items">
+            
+            </ul>
+        </div>
+    </div>
+    <script id="contactTemplate" type="text/template">
+        <li class="contact">
+            <p class="first-name contact-item">{name}</p>
+            <p class="last-name contact-item">{lastname}</p>
+            <p class="phone-number contact-item">{number}</p>
+        </li>
+    </script>
+</body>
+</html>
