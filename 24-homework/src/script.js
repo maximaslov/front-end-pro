@@ -46,7 +46,6 @@ function generateAlbum(element) {
     return `
         <img class="album__img src="${url}" alt="${url}">
     `
-    // <p class="album__img">${url}</p>
 }
 
 function addItemsToHtml(element, place, fn) {
