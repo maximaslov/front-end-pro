@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul  {
+    list-style: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+a:hover {
+    color: forestgreen;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.albums {
+    display: flex;
+}
+
+.albums__left-size {
+    width: 35%;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.albums__right-size {
+    width: 65%;
+    height: 100px;
+}
+
+.albums__images {
+    padding-left: 40px;
+}
