@@ -13,6 +13,13 @@ input {
     margin: 50px auto auto auto;
 }
 
+.students_main {
+    display: flex;
+    justify-content: space-between;
+    min-width: 437px;
+    width: 100%;
+}
+
 .new-student {
     max-width: 100px;
 }

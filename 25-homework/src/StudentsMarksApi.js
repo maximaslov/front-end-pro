@@ -18,7 +18,7 @@ class StudentsMarksApi {
             .catch((e) => alert(e.message));
     }
 
-    static updateMark(id, marks) {
+    static updateMarks(id, marks) {
         return fetch(this.URL + id, {
             method: 'PUT',
             body: JSON.stringify({ marks }),

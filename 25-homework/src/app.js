@@ -6,12 +6,13 @@ const MARK_CLASS = 'students__mark';
 const $table = $('.students');
 const $saveBtn = $('.add-student-btn');
 const $input = $('.new-student');
+const $marks = $('students__marks');
 
-let marksList = [];
+let studentMarksList = [];
 
-getMarksList()
+getStudentsMarksList()
     .then((list) => {
-        marksList = list;
+        studentMarksList = list;
         renderMarksList(list);
     })
 
@@ -36,23 +37,26 @@ function onDeleteButtonClick() {
         .then(res => {
             if (res.ok) {
                 $actionColumn.parent().remove();
-                marksList = marksList.filter(el => el.id !== `${id}`);
+                studentMarksList = studentMarksList.filter(el => el.id !== `${id}`);
             }
         })
 }
 
 function editMarks() {
     const $elem = $(this);
-    const $student = $elem.parent();
-    const id = $student.parent().data('id');
+    const id = findId($elem);
     const index = $elem.data('id');
-    const list = marksList.find(e => e.id == id);
+    const list = studentMarksList.find(e => e.id == id);
     const marks = list.marks;
     const changedMark = Number($elem.val());
 
     marks.splice(index, 1, changedMark);
     
-    updateMark(id, marks);
+    updateMarks(id, marks);
+}
+
+function findId(elem) {
+    return elem.closest('.students__student').data('id');
 }
 
 function onSaveBtnClick() {
@@ -60,7 +64,7 @@ function onSaveBtnClick() {
     if (isValidStudentName(newStudent)) {
        addStudent(newStudent)
         .then(newStudent => {
-            marksList.push(newStudent);
+            studentMarksList.push(newStudent);
             renderMarksItem(newStudent);
             clearInput();
         }); 
@@ -69,7 +73,7 @@ function onSaveBtnClick() {
     }
 }
 
-function getMarksList() {
+function getStudentsMarksList() {
     return StudentsMarksApi.request();
 }
 
@@ -77,8 +81,8 @@ function removeStudent(id) {
     return StudentsMarksApi.deleteStudent(id);
 }
 
-function updateMark(id, marks) {
-    StudentsMarksApi.updateMark(id, marks);
+function updateMarks(id, marks) {
+    StudentsMarksApi.updateMarks(id, marks);
 }
 
 function addStudent(student) {
@@ -86,33 +90,30 @@ function addStudent(student) {
 }
 
 function renderMarksList(list) {
-    const html = list.map(generateMarksHtml);
+    const html = list.map(generateStudentMarksHtml);
 
-    $table.append(html);
+    $table.html(html);
 }
 
 function renderMarksItem(student) {
-    const studentTemplateHTML = generateMarksHtml(student);
+    const studentTemplateHTML = generateStudentMarksHtml(student);
     $table.append(studentTemplateHTML);
 }
 
-function generateMarksHtml(student) { {
+function generateStudentMarksHtml(student) { {
     const name = student.name;
     const marks = student.marks;
+    let inputs = '';
+
+    marks.forEach((mark, index)=> {
+        inputs += `<input class="students__mark" data-id="${index}" value="${mark}"/>`
+    })
+     
     return `
           <tr data-id="${student.id}" class="students__student">
                 <td class="students__name">${name}</td>
                 <td class="students__marks">
-                    <input data-id="0" class="students__mark" value="${marks[0]}" type="text">
-                    <input data-id="1" class="students__mark" value="${marks[1]}" type="text">
-                    <input data-id="2" class="students__mark" value="${marks[2]}" type="text">
-                    <input data-id="3" class="students__mark" value="${marks[3]}" type="text">
-                    <input data-id="4" class="students__mark" value="${marks[4]}" type="text">
-                    <input data-id="5" class="students__mark" value="${marks[5]}" type="text">
-                    <input data-id="6" class="students__mark" value="${marks[6]}" type="text">
-                    <input data-id="7" class="students__mark" value="${marks[7]}" type="text">
-                    <input data-id="8" class="students__mark" value="${marks[8]}" type="text">
-                    <input data-id="9" class="students__mark" value="${marks[9]}" type="text">
+                   <td>${inputs}</td>
                 </td>
                 <td class="students__action">
                     <button class="students__del-btn">Delete</button>
