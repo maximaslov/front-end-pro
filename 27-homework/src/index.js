@@ -1,4 +1,3 @@
-// import style from './style.css';
 import './style.css';
 import messageTemplate from './messageTemplate.html'
 
@@ -55,6 +54,4 @@ function template(data) {
     return messageTemplate
         .replace('{{name}}', name)
         .replace('{{message}}', message)
-        // .replace('{{red}}', style.red)
-        // .replace('{{text}}', style.text)
 }
