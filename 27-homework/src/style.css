@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+}
+
+.red  {
+    color:  rgb(174, 15, 15);
+    font-weight: bold;
+}
+
+.text {
+    color: black;
+    font-style: italic;
+}
