@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 
 function Todo() {
-  const [message, setMessage] = useState('');
-  const [items, setItem] = useState([
+  const [msgInput, setMsgInput] = useState('');
+  const [todoList, setTodoList] = useState([
     'XXX',
     'YYY',
     'QQQ'
@@ -11,22 +11,22 @@ function Todo() {
 
   function onAddBtnClick() {
 
-    setItem([...items, message]);
+    setTodoList([...todoList, msgInput]);
 
-    setMessage('');
+    setMsgInput('');
   }
 
   function onMessageChange(e) {
-    setMessage(e.target.value);
+    setMsgInput(e.target.value);
   }
 
   return (
     <>
       <ul className="list__items">
-        {items.map((item, i) => <li key={i}>{ item }</li>)}
+        {todoList.map((item, i) => <li key={i}>{ item }</li>)}
       </ul>
       <div className="list__input">
-        <input value={message} onChange={onMessageChange} className="list__text" type="text" placeholder ="Enter item" />
+        <input value={msgInput} onChange={onMessageChange} className="list__text" type="text" placeholder ="Enter item" />
         <button className="list__btn" onClick={onAddBtnClick}>Add to the list</button>
       </div>
     </>
