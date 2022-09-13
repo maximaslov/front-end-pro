@@ -1,9 +1,10 @@
-let option = getOperator();
-let operandAmound = getOperandAmound();
-let num = getOperand(operandAmound);
+'use strict'
+
+const option = getOperator();
+const operandAmound = getOperandAmound();
+const num = getOperand(operandAmound);
 
 getResult(num);
-
 showResult();
 
 function getOperator() {
@@ -23,6 +24,7 @@ function getOperandAmound() {
     do {
         count = prompt(`Enter operadns count (More than 1 less than 5)`,3);
     } while (isNaN(count) || count < 2 || count > 5);
+    while (isDataValid)
     return Number(count);
 }
 
@@ -42,10 +44,8 @@ function getOperand(amound) {
   return res;
 }
 
-
 function getResult(arr) {
     let result = arr[0];
-    console.log(arr[0]);
     for (let i = 1; i < arr.length; i++) {
         switch (option) {
             case '+': result += arr[i];
@@ -60,7 +60,6 @@ function getResult(arr) {
     } 
     return result;
 }
-
 
 function showResult () {
     alert(`${num.join(option)} = ${getResult(num)}`);

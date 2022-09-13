@@ -106,6 +106,9 @@ function renderTodoList(list) {
 function renderTodoItem(todo) {
     const todoItemTemplateHTML = generateTodoHtml(todo);
 
+    console.log(todoList)
+    console.log(todoItemTemplateHTML)
+
     todoList.insertAdjacentHTML('beforeend', todoItemTemplateHTML);
 }
 
