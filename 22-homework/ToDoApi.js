@@ -37,7 +37,7 @@ class TodoApi {
             });
     }
 
-    static update(id, status) {
+    static updatee(id, status) {
         return fetch(this.URL + id, {
             method: 'PUT',
             body: JSON.stringify({ status }),
