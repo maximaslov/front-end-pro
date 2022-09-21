@@ -44,7 +44,8 @@ function App() {
       <FavoriteAnimal animal={animal} onAnimalChange={setValue(setAnimal)} />
       
       <Display name={name} animal={animal} />
-    </form>
+
+    </form> 
   )
 }
 
