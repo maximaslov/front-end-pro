@@ -1,70 +1,45 @@
 import React from "react";
-import {useDispatch} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { remove, editStatus } from "../store/actions/todo";
+import style from "../todo.module.css";
 
-export default function List({ todos, onEdit, onDelete }) {
+export default function List() {
+  const todos = useSelector(state => state.todos);
+
   const dispatch = useDispatch();
 
-  function onEditBtnClick(e, todo) {
+  function onElemClick(e, todo) {
     e.stopPropagation();
 
-    // dispatch(remove(todo.id));
-    // onEdit(todo);
-  }
+    todo.status = !todo.status
+
+    dispatch(editStatus(todo));
+  };
 
   function onDeleteBtnClick(e, todo) {
     e.stopPropagation();
 
     dispatch(remove(todo.id));
-  }
-  
-  // function onListItemClick(e, todo) {
-  //   e.stopPropagation();
-  
-  //   if (todo.status) {
-  //     onItem(todo.id, todo.status = false)
-  //   } else {
-  //     onItem(todo.id, todo.status = true)
-  //   }
-  // }
-
-  function itemClassName(todo) {
-    if (todo.status === false) {
-      return "todo-item"
-    } else {
-      return "todo-item done"
-    }
-  }
-
-  //Просто дать обычный класс, а добавлять класс done уже дом элементу??
-
-  function onElemClick(e, todo) {
-    e.stopPropagation();
-
-    dispatch(editStatus(todo));
-    console.log(todo.status);
-  }
+  };
 
   return (
-    <ul id="todoList">
-      {todos.map((todo) => (
-        <li
-          key={todo.id}
-          className={itemClassName(todo)}
-          onClick={e => onElemClick(e, todo)}
-        >
-          {todo.title}
-          <button
-            className="edit-button"
-            onClick={e => onEditBtnClick(e, todo)}
-          >Edit</button>
-          <button
-            className="remove-button"
-            onClick={e => onDeleteBtnClick(e, todo)}
-          >Delete</button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul id="todoList">
+        {todos.map((todo) => (
+          <li
+            key={todo.id}
+            className={todo.status ? style.done : style.todo}
+            onClick={e => onElemClick(e, todo)}
+          >
+            {todo.title}
+            <button
+              className="remove-button"
+              onClick={e => onDeleteBtnClick(e, todo)}
+            >Delete</button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
