@@ -25,7 +25,7 @@ export default function Inputs() {
       number: numberValue,
       id: editedContact ? editedContact.id : ''
       }));
-    console.log(editedContact)
+    
     setNameValue('');
     setLastnameValue('');
     setNumberValue('');

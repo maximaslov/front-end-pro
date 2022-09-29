@@ -61,4 +61,4 @@ export default class ContactsApi {
                 throw new Error(`Can not update todo with id "${id}"`);
             });
     }
-    }
+}

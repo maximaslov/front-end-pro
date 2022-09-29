@@ -11,7 +11,6 @@ export function edit(contact) {
 }
 
 export function saveContact(contact) {
-  console.log(contact)
   return dispatch => {
     if (contact.id) {
       ContactsApi.update(contact.id, contact)
