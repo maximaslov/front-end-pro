@@ -51,21 +51,14 @@ export default class ContactsApi {
     }
     
     static update(id, contact) {
-        const firstname = contact.firstname;
-        const lastname = contact.lastname;
-        const number = contact.number;
-            return fetch(URL + id, {
-                method: 'PUT',
-                body: JSON.stringify({ firstname, lastname, number }),
-                headers: {
-                    'Content-type': 'application/json',
-                },
-            })
+        return ContactsApi
+            .request(id, 'PUT', contact)
             .then(res => {
                 if (res.ok) {
                     return res.json();
                 }
-                throw new Error();
-            })
-}
+        
+                throw new Error(`Can not update todo with id "${id}"`);
+            });
+    }
     }

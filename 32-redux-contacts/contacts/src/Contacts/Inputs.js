@@ -1,24 +1,31 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { saveContact } from "../store/actions/contacts";
+import { isObjectEmpty } from "../utils";
 
 export default function Inputs() {
-
-  const dispatch = useDispatch();
+  const editedContact = useSelector(state => state.editedContact);
   const [nameValue, setNameValue] = useState('');
   const [lastnameValue, setLastnameValue] = useState('');
   const [numberValue, setNumberValue] = useState('');
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    if(!isObjectEmpty(editedContact)){
+      setNameValue(editedContact.firstname);
+      setLastnameValue(editedContact.lastname);
+      setNumberValue(editedContact.number);
+    }
+  },[editedContact])
+  
   function onAddBtnClick() {
-
-    const newContat = {
-        "firstname": nameValue,
-        "lastname": lastnameValue,
-        "number": numberValue,
-        "id": '',
-        } 
-
-    dispatch(saveContact(newContat));
+      dispatch(saveContact({
+      firstname: nameValue,
+      lastname: lastnameValue,
+      number: numberValue,
+      id: editedContact ? editedContact.id : ''
+      }));
+    console.log(editedContact)
     setNameValue('');
     setLastnameValue('');
     setNumberValue('');

@@ -4,8 +4,14 @@ export const ACTION_CONTACT_DELETE = 'remove';
 export const ACTION_CONTACT_ADD = 'add';
 export const ACTION_CONTACT_FETCH_LIST = 'fetchList';
 export const ACTION_CONTACT_UPDATE = 'update';
+export const ACTION_CONTACT_EDIT = 'edit';
+
+export function edit(contact) {
+  return { type: ACTION_CONTACT_EDIT, payload: contact }
+}
 
 export function saveContact(contact) {
+  console.log(contact)
   return dispatch => {
     if (contact.id) {
       ContactsApi.update(contact.id, contact)
@@ -14,8 +20,8 @@ export function saveContact(contact) {
         });
     } else {
       ContactsApi.create(contact)
-        .then(() => {
-          dispatch({ type: ACTION_CONTACT_ADD, payload: contact });
+        .then((newContat) => {
+          dispatch({ type: ACTION_CONTACT_ADD, payload: newContat });
       });
     }
   }
