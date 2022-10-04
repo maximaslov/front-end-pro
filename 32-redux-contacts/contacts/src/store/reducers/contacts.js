@@ -27,7 +27,6 @@ export default function rootReducer(state = INITIAL_STATE, { type, payload }) {
     case ACTION_CONTACT_DELETE:
       return { ...state, list: state.list.filter(contact => contact.id !== payload) }
     case ACTION_CONTACT_ADD:
-      console.log(payload);
       return { ...state, list: [...state.list, payload] }
     default:
       return state;
