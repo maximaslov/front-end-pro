@@ -5,6 +5,5 @@ export function Display({name, email, number}) {
             <p>{email}</p>
             <p>{number}</p>
         </>
-        
     )
 }

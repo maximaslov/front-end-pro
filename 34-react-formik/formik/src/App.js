@@ -1,4 +1,3 @@
-
 import Form from './Form'
 
 function App() {
@@ -6,7 +5,6 @@ function App() {
     <>
       <Form />
     </>
-      
   );
 }
 
